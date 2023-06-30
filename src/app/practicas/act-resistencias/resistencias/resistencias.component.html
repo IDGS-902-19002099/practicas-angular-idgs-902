@@ -1,0 +1,88 @@
+<div class="container">
+    
+    <h1>Calculadora de resistencias</h1>
+    <img src="https://www.logicbus.com.mx/blog/wp-content/uploads/2019/07/codigo-colores-resistencias-e1563802288271.jpg" style="height: 600px; width:600px;" alt="">
+    <br>
+  <h3>Banda 1:</h3>
+  <select
+    type="text"
+    [(ngModel)]="banda1Select"
+    name="banda1Select"
+    class="form-select"
+    aria-label="Default select example"
+  >
+    <option *ngFor="let color of colores" [style.background-color]="color">
+      {{ color }}
+    </option>
+  </select>
+
+  <br />
+  <h3>Banda 2:</h3>
+  <select
+    type="text"
+    [(ngModel)]="banda2Select"
+    name="banda2Select"
+    class="form-select"
+    aria-label="Default select example"
+  >
+    <option *ngFor="let color of colores" [style.background-color]="color">
+      {{ color }}
+    </option>
+  </select>
+
+  <br />
+  <h3>Banda 3:</h3>
+  <select
+    type="text"
+    [(ngModel)]="banda3Select"
+    name="banda3Select"
+    class="form-select"
+    aria-label="Default select example"
+  >
+    <option *ngFor="let color of colores" [style.background-color]="color">
+      {{ color }}
+    </option>
+  </select>
+
+  <br />
+  <h3>Tolerancia:</h3>
+  <mat-radio-group name="opciones" [(ngModel)]="banda4Select">
+    <mat-radio-button
+      *ngFor="let color of tolerancia"
+      name="opciones"
+      [value]="color"
+      style="margin: 10px"
+    >
+      {{ color }}
+    </mat-radio-button>
+  </mat-radio-group>
+
+  <br />
+
+  <button mat-raised-button color="primary"  (click)="calcularResistencias()">Calcular</button>
+  <br />
+  <table>
+    <tr>
+      <th>Banda 1</th>
+      <th>Banda 2</th>
+      <th>Banda 3</th>
+      <th>Tolerancia</th>
+      <th>Var</th>
+      <th>Valor +</th>
+      <th>Valor -</th>
+    </tr>
+    <tr>
+      <td [style.background-color]="banda1Select">{{ banda1Select }}</td>
+      <td [style.background-color]="banda2Select">{{ banda2Select }}</td>
+      <td [style.background-color]="banda3Select">{{ banda3Select }}</td>
+      <td [style.background-color]="banda4Select">{{ banda4Select }}</td>
+      <td >{{ resistencia }}</td>
+      <td >{{ resistenciamax }}</td>
+      <td >{{ resistenciamin }}</td>
+    </tr>
+  </table>
+  <br />
+  <h1>
+    <p>Resultado de las resistencias es de: {{ resistencia }}</p>
+  </h1>
+</div>

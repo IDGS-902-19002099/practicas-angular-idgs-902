@@ -1,0 +1,24 @@
+<div class="contenedor">
+    <h1>Calculadora de distancias de dos puntos en plano cartesiano</h1>
+    <br>
+    <h4>Ingresa los puntos:</h4>
+    <mat-form-field>
+        <input type="number" name="x1" matInput [(ngModel)] = "x1" placeholder ="x1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input type="number" name="y1" matInput [(ngModel)] = "y1" placeholder ="y1">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input type="number" name="x2" matInput [(ngModel)] = "x2" placeholder ="x2">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input type="number" name="y2" matInput [(ngModel)] = "y2" placeholder ="y2">
+    </mat-form-field>
+
+    <button  mat-raised-button color="primary"  (click)="calcularDistancia()"> Calcular</button>
+
+    <h2><p>La distancia entre ambos puntos es de:  {{resultado}}</p></h2>
+</div>

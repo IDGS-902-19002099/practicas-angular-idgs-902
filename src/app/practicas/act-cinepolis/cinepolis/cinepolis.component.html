@@ -1,0 +1,32 @@
+<div class="container">
+
+    <h1>Cinepólis</h1>
+    <br>
+    <mat-form-field>
+        <input type="text" name="nombre" matInput [(ngModel)] = "nombre" placeholder ="Nombre del comprador" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input type="number" name="cantidadCompradores" matInput [(ngModel)] = "cantidadCompradores" placeholder ="Cantidad de compradores" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input type="number" name="cantidadBoletos" matInput [(ngModel)] = "cantidadBoletos" placeholder ="Cantidad boletos" required>
+    </mat-form-field>
+
+
+  <h3>¿Cuenta con tarjeta CINECO?</h3>
+    <mat-radio-group name="opciones" [(ngModel)] = "tarjeta1">
+        <mat-radio-button *ngFor = "let op of opciones" name="opciones" [value]="op" style="margin: 10px">
+            {{op}}
+        </mat-radio-button>
+    </mat-radio-group>
+    <br>
+
+    
+
+    <button  mat-raised-button color="primary"  (click) = "calcularTotal()">Calcular </button>
+
+    <h1><p>Salida: {{resultado}}</p></h1>
+
+</div>
