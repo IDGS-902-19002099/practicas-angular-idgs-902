@@ -1,1 +1,88 @@
-<p>pizzeria works!</p>
+<br />
+<h1>Pizzería</h1>
+<div class="container">
+  <b><label>Nombre:</label> </b>
+  <input [(ngModel)]="nombre" required/>
+  <br />
+  <b><label>Direccion:</label></b>
+  <input [(ngModel)]="direccion" required/>
+  <br />
+  <b> <label for="">Telefono:</label></b>
+  <input type="text" [(ngModel)]="telefono" required/>
+  <br />
+</div>
+<div class="container">
+  <b> <label for="">Tamaño Pizza:</label></b>
+  <br />
+  <br />
+    <div class="contenedor">
+  <mat-radio-group name="tamanos" [(ngModel)]="tamano">
+    <mat-radio-button *ngFor="let tam of tamanos" name="tam" [value]="tam" style="margin: 10px">
+      {{ tam }}
+    </mat-radio-button>
+  </mat-radio-group>
+</div>
+  <br />
+  <br />
+  <br />
+
+  <b><label for="">Ingredientes:</label></b>
+  <br />
+  <div class="form-check" *ngFor="let ingrediente of ingredientes">
+ <input type="text" class="form-check-input" type="checkbox" [value]="ingrediente" (change)="checkCambio(ingrediente);">
+ <label for="" class="form-check-label">
+  {{ingrediente}} $10
+ </label>
+   </div>
+  <br />
+
+  <b><label for="">Num. Pizzas:</label></b>
+  <input [(ngModel)]="numPizzas" />
+
+  <br />
+
+  <button class="btn btn-secondary" (click)="agregar()">Agregar</button>
+
+  <br />
+</div>
+<div class="container">
+  <table class="table table-striped">
+    <thead class="">
+      <tr>
+        <th>Tamaño</th>
+        <th>Ingredientes</th>
+        <th>Num. pizzas</th>
+        <th>Sub total</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr  *ngFor="let data of ventas" name="ventas">
+        <td *ngIf="data.tamano">{{ data.tamano }}</td>
+        <td *ngIf="data.tamano">{{ data.ingrediente }}</td>
+        <td *ngIf="data.tamano">{{ data.numPizzas }}</td>
+        <td *ngIf="data.tamano">{{ data.subtotal }}</td>
+        <td *ngIf="data.tamano">
+          <button class="btn btn-secondary" (click)="quitar(data.id)">
+            Quitar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br /><br /><br />
+
+  <div class="card" style="width: 19rem; margin-left: 30px">
+    <b><label for="">Ventas del día:</label></b>
+    <div class="card-body">
+        <div *ngFor="let data of ventadeldia">
+      <h5 class="card-title" *ngIf="data.total"  >
+        Nombre: {{ data.nombre }},Total de: ${{ data.total }}
+      </h5></div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <button class="btn btn-secondary" (click)="terminar()">Terminar</button>
+</div>
